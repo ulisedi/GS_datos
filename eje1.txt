@@ -1,0 +1,3 @@
+El promedio de notas es: 5.7
+El mayor es: 10.0
+El menor es: 2.0
