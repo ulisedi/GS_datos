@@ -96,7 +96,7 @@ public class ProductosBinarios {
             System.out.print("Nuevo precio: ");
             double nuevoPrecio = sc.nextDouble();
 
-            // LEER TODO EL FICHERO
+            // LEER
             ArrayList<Integer> codigos = new ArrayList<>();
             ArrayList<Double> precios = new ArrayList<>();
 
