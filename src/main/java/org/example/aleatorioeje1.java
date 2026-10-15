@@ -6,31 +6,42 @@ import java.util.ArrayList;
 import java.util.RandomAccess;
 
 public class aleatorioeje1 {
-    public static class curso{
+    public static class curso {
         int numCurso;
         String nomCurso;
         Double coste;
-        public  curso(int numCurso,String nomCurso, Double coste){
-            this.numCurso=numCurso;
-            this.nomCurso=nomCurso;
-            this.coste=coste;
+
+        public curso(int numCurso, String nomCurso, Double coste) {
+            this.numCurso = numCurso;
+            this.nomCurso = nomCurso;
+            this.coste = coste;
         }
 
     }
+
     static void main(String[] args) {
-        ArrayList <curso> cursos;
-        try {
-            RandomAccessFile raf =new RandomAccessFile("CursosAleatorio.dat","rw");
-            for(int i =0;i <= 15;i++){
-                    raf.setLength(i);
+        ArrayList<curso> cursos;
+        try (RandomAccessFile raf = new RandomAccessFile("CursosAleatorio.dat", "rw");) {
+
+            for (int i = 0; i <= 15; i++) {
+                raf.writeInt(-1);
+                //
+                String nombre= "               ";
+                raf.writeChars(nombre);
+                raf.writeDouble(0.0);
             }
-
-
-
-        } catch (IOException e){
-
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
 
+    }
+    static void escribir(RandomAccessFile raf,curso cursos,int pos){
+        int posicion = pos *42;
+        try {
+            raf.seek(posicion);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
